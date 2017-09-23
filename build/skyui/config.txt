@@ -316,6 +316,7 @@ columns.weightColumn.name = '$WEIGHT'
 columns.weightColumn.states = 2
 columns.weightColumn.width = 0.09
 columns.weightColumn.border = a_textBorder
+columns.weightColumn.hidden = true
 
 columns.weightColumn.state1.label.text = '$WGT'
 columns.weightColumn.state1.label.arrowDown = true
@@ -327,6 +328,25 @@ columns.weightColumn.state2.label.text = '$WGT'
 columns.weightColumn.state2.entry.text = @infoWeight
 columns.weightColumn.state2.sortAttributes = <infoWeight, text>
 columns.weightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; TOTAL WEIGHT COLUMN -------------------------------------------------------
+columns.totalWeightColumn.type = TEXT
+columns.totalWeightColumn.name = '$TOTALWEIGHT'
+columns.totalWeightColumn.states = 2
+columns.totalWeightColumn.width = 0.09
+columns.totalWeightColumn.border = a_textBorder
+
+columns.totalWeightColumn.state1.label.text = '$TWGT'
+columns.totalWeightColumn.state1.label.arrowDown = true
+columns.totalWeightColumn.state1.entry.text = @infoTotalWeight
+columns.totalWeightColumn.state1.sortAttributes = <infoTotalWeight, text>
+columns.totalWeightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.totalWeightColumn.state2.label.text = '$TWGT'
+columns.totalWeightColumn.state2.entry.text = @infoTotalWeight
+columns.totalWeightColumn.state2.sortAttributes = <infoTotalWeight, text>
+columns.totalWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
 
 
 ; VALUE COLUMN -------------------------------------------------------
@@ -668,18 +688,18 @@ columns.alchValueWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCE
 
 ; ITEM VIEWS -------------------------------------------------------
 views.defaultItemView.primaryColumn = itemNameColumn
-views.defaultItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.defaultItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 
 views.weaponView.primaryColumn = itemNameColumn
-views.weaponView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, materialColumn, damageColumn, weightColumn, valueColumn, valueWeightColumn>
+views.weaponView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, materialColumn, damageColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.weaponView.category = <Inventory.FILTERFLAG_INV_WEAPONS, Inventory.FILTERFLAG_CONTAINER_WEAPONS>
 
 views.armorView.primaryColumn = itemNameColumn
-views.armorView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, classColumn, materialColumn, arColumn, weightColumn, valueColumn, valueWeightColumn>
+views.armorView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, classColumn, materialColumn, arColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.armorView.category = <Inventory.FILTERFLAG_INV_ARMOR, Inventory.FILTERFLAG_CONTAINER_ARMOR>
 
 views.magicItemView.primaryColumn = itemNameColumn
-views.magicItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, magnitudeColumn, durationColumn, weightColumn, valueColumn, valueWeightColumn>
+views.magicItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, magnitudeColumn, durationColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.magicItemView.category = <Inventory.FILTERFLAG_INV_POTIONS, Inventory.FILTERFLAG_INV_SCROLLS, Inventory.FILTERFLAG_CONTAINER_POTIONS, Inventory.FILTERFLAG_CONTAINER_SCROLLS>
 
 views.keysView.primaryColumn = itemNameColumn
@@ -710,14 +730,14 @@ views.activeEffectView.category = Inventory.FILTERFLAG_MAGIC_ACTIVEEFFECTS
 
 ; CRAFTING VIEWS -------------------------------------------------------
 views.defaultCraftingView.primaryColumn = craftNameColumn
-views.defaultCraftingView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.defaultCraftingView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 
 views.disenchantView.primaryColumn = craftNameColumn
-views.disenchantView.columns = <equipColumn, iconColumn, craftNameColumn, disenchantEffectColumn, subTypeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.disenchantView.columns = <equipColumn, iconColumn, craftNameColumn, disenchantEffectColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.disenchantView.category = Inventory.FILTERFLAG_ENCHANTING_DISENCHANT
 
 views.enchantItemView.primaryColumn = craftNameColumn
-views.enchantItemView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, weightColumn, valueColumn, valueWeightColumn>
+views.enchantItemView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.enchantItemView.category = Inventory.FILTERFLAG_ENCHANTING_ITEM
 
 views.enchantEnchantmentView.primaryColumn = craftNameColumn
@@ -725,15 +745,15 @@ views.enchantEnchantmentView.columns = <equipColumn, iconColumn, craftNameColumn
 views.enchantEnchantmentView.category = Inventory.FILTERFLAG_ENCHANTING_ENCHANTMENT
 
 views.enchantSoulView.primaryColumn = craftNameColumn
-views.enchantSoulView.columns = <equipColumn, iconColumn, craftNameColumn, soulSizeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.enchantSoulView.columns = <equipColumn, iconColumn, craftNameColumn, soulSizeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.enchantSoulView.category = Inventory.FILTERFLAG_ENCHANTING_SOULGEM
 
 views.craftWeaponView.primaryColumn = craftNameColumn
-views.craftWeaponView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, damageColumn, weightColumn, valueColumn, valueWeightColumn>
+views.craftWeaponView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, damageColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.craftWeaponView.category = <Inventory.FILTERFLAG_CUST_CRAFT_WEAPONS, Inventory.FILTERFLAG_CUST_CRAFT_AMMO>
 
 views.craftArmorView.primaryColumn = craftNameColumn
-views.craftArmorView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, classColumn, materialColumn, arColumn, weightColumn, valueColumn, valueWeightColumn>
+views.craftArmorView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, classColumn, materialColumn, arColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
 views.craftArmorView.category = Inventory.FILTERFLAG_CUST_CRAFT_ARMOR
 
 views.alchemyView.primaryColumn = craftNameColumn

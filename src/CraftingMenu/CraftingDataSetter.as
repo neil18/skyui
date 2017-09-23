@@ -51,9 +51,9 @@ class CraftingDataSetter implements IListProcessor
 		a_entryObject.isEquipped = (a_entryObject.equipState > 0);
 
 		a_entryObject.infoValue = (a_entryObject.value > 0) ? (Math.round(a_entryObject.value * 100) / 100) : null;
-		a_entryObject.infoWeight =(a_entryObject.weight > 0) ? (Math.round(a_entryObject.weight * 100) / 100) : null;
+		a_entryObject.infoTotalWeight =(a_entryObject.weight > 0) ? (Math.round(a_entryObject.weight * a_entryObject.count * 100) / 100) : null;
 		
-		a_entryObject.infoValueWeight = (a_entryObject.weight > 0 && a_entryObject.value > 0) ? (Math.round((a_entryObject.value / a_entryObject.weight) * 100) / 100) : null;
+		a_entryObject.infoValueWeight = (a_entryObject.weight > 0 && a_entryObject.value > 0) ? Math.round(a_entryObject.value / a_entryObject.weight) : null;
 
 		switch (a_entryObject.formType) {
 			case Form.TYPE_SCROLLITEM:
