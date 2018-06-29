@@ -355,6 +355,23 @@ class ItemMenu extends MovieClip
 				GameDelegate.call("UpdateItem3D",[true]);
 				
 			GameDelegate.call("RequestItemCardInfo",[], this, "UpdateItemCardInfo");
+
+			var selectedEntry = inventoryLists.itemList.selectedEntry;
+
+			if (selectedEntry.keywords["VendorItemArrow"] != undefined)
+			{
+				if (selectedEntry.keywords["REQ_KW_AmmoWeight_Light"] != undefined) {
+					itemCard.ItemWeightText.SetText(0.1);
+				}else if (selectedEntry.keywords["REQ_KW_AmmoWeight_Medium"] != undefined) {
+					itemCard.ItemWeightText.SetText(0.2);
+				}else if (selectedEntry.keywords["REQ_KW_AmmoWeight_Heavy"] != undefined) {
+					itemCard.ItemWeightText.SetText(0.3);
+				}else if (selectedEntry.keywords["REQ_KW_AmmoWeight_Massive"] != undefined) {
+					itemCard.ItemWeightText.SetText(0.5);
+				}else if (selectedEntry.keywords["REQ_KW_AmmoWeight_None"] == undefined) {
+					itemCard.ItemWeightText.SetText(0.2);
+				}
+			}
 			
 		} else {
 			if (!bFadedIn)

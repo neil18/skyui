@@ -85,6 +85,28 @@ class InventoryDataSetter extends ItemcardDataExtender
 			case Form.TYPE_AMMO:
 				a_entryObject.isEnchanted = (a_itemInfo.effects != "");
 				a_entryObject.infoDamage = (a_itemInfo.damage > 0) ? (Math.round(a_itemInfo.damage * 100) / 100) : null;
+
+				if (a_entryObject.keywords["REQ_KW_AmmoWeight_Light"] != undefined) {
+					a_entryObject.infoWeight = 0.1;
+					a_entryObject.infoTotalWeight = Math.round(0.1 * a_entryObject.count * 100) / 100;
+					a_entryObject.infoValueWeight = Math.round(a_itemInfo.value / 0.1);
+				}else if (a_entryObject.keywords["REQ_KW_AmmoWeight_Medium"] != undefined) {
+					a_entryObject.infoWeight = 0.2;
+					a_entryObject.infoTotalWeight = Math.round(0.2 * a_entryObject.count * 100) / 100;
+					a_entryObject.infoValueWeight = Math.round(a_itemInfo.value / 0.2);
+				}else if (a_entryObject.keywords["REQ_KW_AmmoWeight_Heavy"] != undefined) {
+					a_entryObject.infoWeight = 0.3;
+					a_entryObject.infoTotalWeight = Math.round(0.3 * a_entryObject.count * 100) / 100;
+					a_entryObject.infoValueWeight = Math.round(a_itemInfo.value / 0.3);
+				}else if (a_entryObject.keywords["REQ_KW_AmmoWeight_Massive"] != undefined) {
+					a_entryObject.infoWeight = 0.5;
+					a_entryObject.infoTotalWeight = Math.round(0.5 * a_entryObject.count * 100) / 100;
+					a_entryObject.infoValueWeight = Math.round(a_itemInfo.value / 0.5);
+				}else if (a_entryObject.keywords["REQ_KW_AmmoWeight_None"] == undefined) {
+					a_entryObject.infoWeight = 0.2;
+					a_entryObject.infoTotalWeight = Math.round(0.2 * a_entryObject.count * 100) / 100;
+					a_entryObject.infoValueWeight = Math.round(a_itemInfo.value / 0.2);
+				}
 				
 				processAmmoType(a_entryObject);
 				processMaterialKeywords(a_entryObject);
